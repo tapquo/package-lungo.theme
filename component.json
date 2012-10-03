@@ -1,7 +1,7 @@
 {
   "name": "lungo.theme",
   "description": "Lungo default theme in LESS format",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "homepage": "http://lungo.tapquo.com",
   "main": ["./lungo.theme.default.less"],
   "keywords": [ "mobile" ],
