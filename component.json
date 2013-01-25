@@ -1,14 +1,13 @@
 {
   "name": "lungo.theme",
-  "description": "Lungo default theme in LESS format",
-  "version": "0.0.5",
+  "description": "Lungo default theme in STYLUS format",
+  "version": "2.1.0",
   "homepage": "http://lungo.tapquo.com",
-  "main": ["./lungo.theme.default.less"],
+  "author": {
+    "name": "Tapquo S.L.",
+    "site": "http://tapquo.com"},
+  "main": ["./theme.lungo.less"],
   "keywords": [ "mobile" ],
-  "dependencies": {
-    "lungo": "~2.0.0"
-  },
-  "license": [{
-    "type": "GPLv3"
-  }]
+  "dependencies": { "lungo": "~2.1.0" },
+  "license": [ {"type": "GPLv3"}, {"type": "Commercial"}]
 }
