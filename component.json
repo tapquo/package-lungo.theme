@@ -1,13 +1,13 @@
 {
   "name": "lungo.theme",
   "description": "Lungo default theme in STYLUS format",
-  "version": "2.1.0315",
+  "version": "2.1.0316",
   "homepage": "http://lungo.tapquo.com",
   "author": {
     "name": "Tapquo S.L.",
     "site": "http://tapquo.com"},
   "main": ["./theme.lungo.less"],
   "keywords": [ "mobile" ],
-  "dependencies": { "lungo.brownie": "~2.1.0315" },
+  "dependencies": { "lungo.brownie": "~2.1.0316" },
   "license": [ {"type": "GPLv3"}, {"type": "Commercial"}]
 }
