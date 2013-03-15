@@ -1,0 +1,48 @@
+/**
+ * Stylesheet
+ *
+ * @namespace Lungo.Theme
+ * @class Layout
+ *
+ * @author Javier Jimenez Villar <javi@tapquo.com> || @soyjavi
+ */
+
+@import "__init.styl"
+
+body > section
+  background-color: COLOR_contrast
+  &, & a
+    color: COLOR
+  & > header
+    C = COLOR_theme
+    background-color: COLOR_theme
+    box-shadow 0 2px 0 rgba(0,0,0,0.15), inset 0 1px 0 lighten(C, 20%), inset 0 -1px 0 darken(C, 20%)
+    color: #fff
+    border-radius (BORDER_radius * 2.5) (BORDER_radius * 2.5) 0 0
+
+  & > footer, & nav[data-control=groupbar]
+    background-color: COLOR_contrast
+  & > article, & > [data-control="pull"]
+    background-color: BACKGROUND
+    &.splash
+      background: COLOR_theme
+      color: #fff
+  &.aside
+    box-shadow -1px 0 2px rgba(0,0,0,0.2)
+    &.right
+      box-shadow 1px 0 2px rgba(0,0,0,0.2)
+
+  &[data-pull] > article.active
+    box-shadow: 0 -1px 0 rgba(0,0,0,0.05)
+
+body > aside
+  background-color: COLOR_contrast
+  color: #fff
+  C = darken(COLOR_contrast, 20%)
+  & > header, > footer
+    background-color: C
+  & > header
+    box-shadow 0 2px 0 rgba(0,0,0,0.15), inset 0 1px 0 lighten(C, 10%), inset 0 -1px 0 darken(C, 20%)
+
+body > * > header > .title
+  font-weight: 700
