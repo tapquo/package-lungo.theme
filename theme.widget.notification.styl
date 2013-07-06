@@ -7,47 +7,64 @@
  * @author Javier Jimenez Villar <javi@tapquo.com> || @soyjavi
  */
 
-@import "__init.styl"
-
-
 /* -------------------------- NOTIFICATION -------------------------- */
+
 .notification
   color: #fff
   &:not(.push)
-    background-color: rgba(0,0,0,0.6)
+    background-color: rgba(0,0,0,0.5)
   & .window
-    &:not(.push)
-      border-radius FORM_border_radius
+    box-shadow 0 0 0 3px rgba(0,0,0,0.1)
     &.growl
-      background: rgba(0,0,0,0.75)
+      background-color: rgba(0,0,0,0.8)
       & strong
-        opacity: 0.75
-        font-weight: 400
-    &:not(.growl)
-      box-shadow(0 0 8px #444)
-      & button, .button
-        background: #fff
-        color: THEME
+        color: darken(#fff, 25%)
+        font-weight: 700
+
     &.confirm, &.html
-      background: #e6e6e6
-      color: #222
-    &.error
-      background: DANGER
-    &.success
-      background: SUCCESS
+      & button
+        background-color: #fff
+        color: darken(COLOR, 75%)
+        font-weight: 400
+        &[data-callback=cancel], &[data-action=close]
+          color: DANGER
+
+    &.html, &.confirm
+      background-color: COLOR
+      color: TEXT
+
+    &.confirm
+      & > small, > .icon
+        color: lighten(TEXT, 50%)
+
+      & > button
+        &:nth-child(1)
+          color: DANGER !important
+
     &.error, &.success
+      background-color: rgba(0,0,0,0.8)
+      border-bottom: solid 0.4em
       color: #fff
       & small
-        opacity: 0.75
-        font-weight: 100
+        color: darken(#fff, 25%)
+
+    &.error
+      border-bottom-color: DANGER
+      & > .icon
+        color: DANGER
+    &.success
+      border-bottom-color: SUCCESS
+      & > .icon
+        color: SUCCESS
+
     &.html
       & .title
-        background: THEME
+        background-color: THEME
         color: #fff
-        border-radius FORM_border_radius FORM_border_radius 0px 0px
-    &.push
-      background: rgba(0,0,0,0.75)
 
-    & button, & .button
-      &:last-child
-        border-radius 0px 0px FORM_border_radius FORM_border_radius
+    &.push
+      background-color: COLOR
+      box-shadow: inset 0 -0.1em #000
+
+    & small
+      font-weight: 300

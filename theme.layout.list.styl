@@ -7,38 +7,44 @@
  * @author Javier Jimenez Villar <javi@tapquo.com> || @soyjavi
  */
 
-@import "__init.styl"
 .list
   section & li
     background: #fff
+    font-weight: 300
     &:not(.anchor)
       border-bottom: inset 1px LIST_border
     &.color
-      box-shadow: inset 4px 0px 0px COLOR
+      box-shadow: inset 4px 0 COLOR
     &.accept
-      box-shadow: inset 4px 0px 0px SUCCESS
+      box-shadow: inset 4px 0 SUCCESS
     &.cancel
-      box-shadow: inset 4px 0px 0px DANGER
+      box-shadow: inset 4px 0 DANGER
     &.warning
-      box-shadow: inset 4px 0px 0px WARNING
+      box-shadow: inset 4px 0 WARNING
     &.arrow::after
-      border-color: lighten(COLOR, 75%)
+      border-color: LIST_border
 
     &, a
       &.contrast
-        background: COLOR
+        background: LIST_border
       &.selectable:active, &.theme, &.active
         background: lighten(THEME, 15%)
       &.light
         background: LIST_border
-        color: lighten(COLOR, 20%)
+        color: lighten(TEXT, 50%)
       &.contrast, &.selectable:active, &.theme
-        &, small, & .right:not(.tag), strong, .arrow::after
+        &, small, & .on-right:not(.tag), strong, .arrow::after
           color: #fff
         &.arrow::after
           border-color: #fff
-      & small, & .right:not(.tag)
-        color: lighten(COLOR, 20%)
+      & small, & .on-right:not(.tag)
+        color: lighten(TEXT, 50%)
+
+      & .on-right
+        font-weight: 400
+
+    &:not(.big) img
+      border-radius BORDER_radius
 
   &:not(.indented) li
     &.dark, &.theme, &.light
@@ -46,19 +52,27 @@
 
   aside & li
     background: none
-    &:not(:first-child)
-      border-top: solid 1px  lighten(COLOR, 5%)
-    &:not(:last-child)
-      border-bottom: solid 1px darken(COLOR, 20%)
-    &:active
-      background: darken(COLOR, 5%)
-    &.active
-      background: THEME
+    &, & a
+      color: lighten(ASIDE, 50%)
+      &:not(.active) .tag:not(.icon)
+        background-color: ASIDE
+      &.active .tag:not(.icon)
+        background-color: lighten(ASIDE, 10%)
+
+    & .icon
+      color: lighten(ASIDE, 70%)
+
+    & small
+      color: lighten(ASIDE, 25%)
+
     &.active, &:active
-      border-color: transparent
-      & strong, & small, & .icon
-        color: #fff
-    & strong
-      color: lighten(COLOR, 75%)
-    & small, .icon
-      color: lighten(COLOR, 40%)
+      background-color: darken(ASIDE, 5%)
+    &:hover
+      background-color: darken(ASIDE, 10%)
+    &.active, &:active, &:hover
+      &, & a
+        color: WHITE
+      & .icon
+        color: THEME
+      & small
+        color: lighten(ASIDE, 50%)

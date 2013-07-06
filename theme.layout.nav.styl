@@ -7,57 +7,58 @@
  * @author Javier Jimenez Villar <javi@tapquo.com> || @soyjavi
  */
 
-@import "__init.styl"
-
 nav
-  section > header > &
-    & a:not(.button)
-      color: darken(THEME, 35%)
-      text-shadow 0 1px 0 lighten(THEME, 25%)
-      &:active
-        color: darken(THEME, 50%)
+  section header > &
+    &:not(.on-right)
+      & a, button
+        color: darken(THEME, 40%)
+        text-shadow: 0 0.1em lighten(THEME, 10%)
+    &.on-right
+      & a, button
+        color: lighten(THEME, 95%)
+        text-shadow: 0 0.1em darken(THEME, 10%)
+
+  aside header > &
+    & a, button
+      color: lighten(ASIDE, 25%)
+      text-shadow: 0 0.1em darken(ASIDE, 10%)
+
+  header > &
+    a, button
+      &:active, &.active
+        color: WHITE !important
+        text-shadow: 0 0 0.5em WHITE
 
   section > footer > & > a, &[data-control=groupbar] > a
     color: NAV_LINK
-    &.active
+    transition text-shadow TRANSITION_time TRANSITION_easing
+    & abbr
+      font-weight: 400
+    &.active, &:active
       color: NAV_LINK_ACTIVE
-
-  section > &[data-control=groupbar] > a.active
-    transition box-shadow TRANSITION_time TRANSITION_easing
-    box-shadow inset 0 -4px 0 THEME
-
-  section > footer > & > a
-    box-shadow inset 0 1px 0 #000, inset 0 2px 0 lighten(COLOR, 20%)
-    &.active
-      box-shadow inset 0 0 16px darken(COLOR, 75%)
-      background-color: darken(COLOR, 10%)
-
-  aside & a
-    color: lighten(COLOR, 20%)
-    &:active
-      color: lighten(COLOR, 50%)
+      text-shadow: 0 0 1em NAV_LINK
 
   &[data-control=menu]
-    background: COLOR
-    box-shadow 0 2px 0 rgba(0,0,0,0.15)
+    background-color: rgba(0,0,0,0.9)
+    box-shadow 0 2px 0 SHADOW
     &.icons
-      background: rgba(0,0,0,0.8)
       & > a
-        color: lighten(COLOR, 35%)
-        &:active > .icon
-          text-shadow: 0 0 32px #fff
+        &, > abbr
+          color: NAV_LINK
         & > .icon
-          color: #fff
+          color: NAV_LINK_ACTIVE
+        &:active, &:hover
+          & > .icon
+            text-shadow: 0 0 2em NAV_LINK_ACTIVE
+
     &:not(.icons)
       & > a
-        color: #fff
-        // text-shadow 0 1px 0 #111
-        border-bottom: 1px solid darken(COLOR, 20%)
-        border-top: 1px solid lighten(COLOR, 5%)
-        &:active
-          background: darken(COLOR, 15%)
-          border-color: transparent
+        &, > abbr
+          color: NAV_LINK_ACTIVE
         & > .icon
-          color: lighten(COLOR, 25%)
-    & > a
-      font-weight: 600
+          color: NAV_LINK
+        &:active, &:hover
+          background-color: rgba(255,255,255,0.2)
+          & > .icon
+            color: THEME
+
